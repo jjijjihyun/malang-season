@@ -1596,9 +1596,7 @@ function start(data){data=data||{};S.day=1;blanketNeat(false);setPlant(0);parcel
   $('#pname').onkeydown=e=>{if(e.key==='Enter'&&$('#pname').value.trim())$('#howgo').click();};
   $('#howgo').onclick=()=>{PNAME=$('#pname').value.trim().slice(0,8);try{localStorage.setItem('malang-name',PNAME);}catch(e){}$('#howto').hidden=true;begin(seed);};$('#again').onclick=()=>begin(null);
   requestAnimationFrame(frame);}
-const hot=window.claude&&window.claude.hot;
-try{if(hot&&hot.snapshot)hot.snapshot(()=>S.started&&!S.ended?{day:S.day,flags:S.flags,traces:S.traces,did:S.did}:{});}catch(e){}
-if(hot&&hot.ready)hot.ready(start);else start((hot&&hot.data)||{});
+start();
 })();
 </script>
 
